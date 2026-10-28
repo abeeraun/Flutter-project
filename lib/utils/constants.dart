@@ -1,7 +1,7 @@
 class ApiConstants {
   static const String baseUrl = String.fromEnvironment(
     'API_BASE_URL',
-    defaultValue: 'http://10.71.34.95/studyflow_api',
+    defaultValue: 'http://localhost/studyflow_api',
   );
   static const Duration timeoutDuration = Duration(seconds: 20);
 }

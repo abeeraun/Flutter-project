@@ -74,6 +74,12 @@ flutter run --dart-define=API_BASE_URL=http://192.168.1.10/studyflow_api
 
 See `SETUP.md` for the complete setup and troubleshooting steps.
 
+## Configuration and security
+
+- The app uses `API_BASE_URL` at build/run time. The default is local desktop XAMPP (`http://localhost/studyflow_api`); Android emulators and physical phones must pass their own URL with `--dart-define` as shown above.
+- The PHP API reads `STUDYFLOW_DB_HOST`, `STUDYFLOW_DB_NAME`, `STUDYFLOW_DB_USER`, and `STUDYFLOW_DB_PASSWORD` from the server environment. Keep real credentials out of GitHub; use `studyflow_api/config/.env.example` as a reference only.
+- `studyflow_api/config/.htaccess` blocks direct access to backend configuration files when Apache is configured to honor `.htaccess` rules.
+
 ## Academic Requirements Covered
 
 - Four main screens for a solo project

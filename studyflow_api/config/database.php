@@ -7,10 +7,11 @@ class Database
     public static function getConnection(): PDO
     {
         if (self::$instance === null) {
-            $host = '127.0.0.1';
-            $dbname = 'studyflow_db';
-            $username = 'root';
-            $password = '';
+            // Use environment variables in production; the defaults are only for local XAMPP.
+            $host = getenv('STUDYFLOW_DB_HOST') ?: '127.0.0.1';
+            $dbname = getenv('STUDYFLOW_DB_NAME') ?: 'studyflow_db';
+            $username = getenv('STUDYFLOW_DB_USER') ?: 'root';
+            $password = getenv('STUDYFLOW_DB_PASSWORD') ?: '';
             $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
             $options = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
